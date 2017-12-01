@@ -17,6 +17,8 @@ def parse_arg(arg):
 
 def parse_line(instr):
     try:
+        if instr.split()[-1] in signals:
+            return True
         if 'OR' in instr:
             instr = instr.split()
             s1 = parse_arg(instr[0])
@@ -64,5 +66,9 @@ def construct_circuit(in_file):
 
 
 if __name__ == '__main__':
+    construct_circuit(sys.argv[1])
+    temp = signals['a']
+    signals = {}
+    signals['b'] = temp
     output = construct_circuit(sys.argv[1])
     print('Output: {}'.format(output))
