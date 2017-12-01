@@ -23,7 +23,7 @@ def parse_line(instr):
             instr = instr.split()
             s1 = parse_arg(instr[0])
             s2 = parse_arg(instr[2])
-            signals[instr[-1]] = s1 ^ s2
+            signals[instr[-1]] = s1 | s2
         elif 'AND' in instr:
             instr = instr.split()
             s1 = parse_arg(instr[0])
